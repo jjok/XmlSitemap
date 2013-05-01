@@ -1,6 +1,8 @@
 XmlSitemap
 ==========
 
+[![Build Status](https://travis-ci.org/jjok/XmlSitemap.png)](https://travis-ci.org/jjok/XmlSitemap)
+
 Generate an XML sitemap.
 
 	$sitemap = new \jjok\XmlSitemap\Sitemap();
