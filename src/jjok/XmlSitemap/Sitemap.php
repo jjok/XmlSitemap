@@ -78,6 +78,14 @@ class Sitemap {
 	}
 
 	/**
+	 * Get the number of URLs added to the sitemap.
+	 * @return integer
+	 */
+	public function length() {
+		return count($this->urlset);
+	}
+	
+	/**
 	 * @deprecated Use Builder::sitemapToXML()
 	 * @return string
 	 */
