@@ -46,6 +46,13 @@ class Sitemap {
 	protected $stylesheet = '';
 
 	/**
+	 * Get the added Urls.
+	 * @return Url[]
+	 */
+	public function getUrlset() {
+		return $this->urlset;
+	}
+	/**
 	 * Add a URL to the sitemap.
 	 * @param Url $url
 	 */
@@ -54,7 +61,14 @@ class Sitemap {
 	}
 
 	/**
-	 * 
+	 * Get the stylesheet.
+	 * @return string
+	 */
+	public function getStylesheet() {
+		return $this->stylesheet;
+	}
+	/**
+	 * Set a stylesheet.
 	 * @param string $value
 	 */
 	public function setStylesheet($value) {
@@ -70,8 +84,10 @@ class Sitemap {
 		$xml = new \DOMDocument('1.0', 'UTF-8');
 
 		if($this->stylesheet != '') {
-			$xsl = $xml->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="'.$this->stylesheet.'" ');
-			$xml->appendChild($xsl);
+			$xml->appendChild($xml->createProcessingInstruction(
+				'xml-stylesheet',
+				sprintf('type="text/xsl" href="%s" ', $this->stylesheet)
+			));
 		}
 
 		$urlset = $xml->appendChild($xml->createElement('urlset'));
