@@ -64,9 +64,9 @@ class Url {
 	/**
 	 * Set the URL properties.
 	 * @param string $loc
+	 * @param float $priority
 	 * @param string $lastmod
 	 * @param string $changefreq
-	 * @param float $priority
 	 */
 	public function __construct($loc, $priority = null, $lastmod = null, $changefreq = null) {
 		$this->loc = $loc;
@@ -85,7 +85,7 @@ class Url {
 
 	/**
 	 * Get the priority of the URL.
-	 * @return unknown
+	 * @return float
 	 */
 	public function getPriority() {
 		return $this->priority;
