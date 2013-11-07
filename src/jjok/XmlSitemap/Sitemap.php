@@ -52,6 +52,7 @@ class Sitemap {
 	public function getUrlset() {
 		return $this->urlset;
 	}
+	
 	/**
 	 * Add a URL to the sitemap.
 	 * @param Url $url
@@ -67,6 +68,7 @@ class Sitemap {
 	public function getStylesheet() {
 		return $this->stylesheet;
 	}
+	
 	/**
 	 * Set a stylesheet.
 	 * @param string $value
