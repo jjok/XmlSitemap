@@ -78,7 +78,7 @@ class Sitemap {
 	}
 
 	/**
-	 * 
+	 * @deprecated Use Builder::sitemapToXML()
 	 * @return string
 	 */
 	public function toString() {
