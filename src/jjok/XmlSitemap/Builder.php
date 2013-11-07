@@ -17,13 +17,13 @@ class Builder {
 	 */
 	protected $xml;
 	
-	/**
-	 * 
-	 * @param DOMDocument $xml
-	 */
-	public function __construct(DOMDocument $xml) {
-		$this->xml = $xml;
-	}
+// 	/**
+// 	 * 
+// 	 * @param DOMDocument $xml
+// 	 */
+// 	public function __construct(DOMDocument $xml) {
+// 		$this->xml = $xml;
+// 	}
 	
 	/**
 	 * Convert a Sitemap to XML.
@@ -31,6 +31,7 @@ class Builder {
 	 * @return DOMDocument
 	 */
 	public function sitemapToXML(Sitemap $sitemap) {
+		$this->xml = new \DOMDocument('1.0', 'UTF-8');
 		
 		if($sitemap->getStylesheet() != '') {
 			$this->xml->appendChild($this->xml->createProcessingInstruction(
@@ -56,7 +57,7 @@ class Builder {
 	 * @param Url $url
 	 * @return \DOMElement
 	 */
-	public function urlToXML(Url $url) {
+	protected function urlToXML(Url $url) {
 		
 		$url_el = $this->xml->createElement('url');
 		
