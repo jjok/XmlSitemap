@@ -42,14 +42,28 @@ class Builder {
 		
 		$urlset = $this->xml->appendChild($this->xml->createElement('urlset'));
 		$urlset->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
-		$urlset->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-		$urlset->setAttribute('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
+// 		$urlset->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+// 		$urlset->setAttribute('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
 		
 		foreach($sitemap->getUrlset() as $url) {
 			$urlset->appendChild($this->urlToXML($url));
 		}
 		
 		return $this->xml;
+	}
+	
+	public function indexToXML(Index $index) {
+		$xml = new \DOMDocument('1.0', 'UTF-8');
+		
+		$sitemapindex = $xml->appendChild($xml->createElement('sitemapindex'));
+		$sitemapindex->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+		
+		foreach($index->getSitemaps() as $loc) {
+			$sitemap = $sitemapindex->appendChild($xml->createElement('sitemap'));
+			$sitemap->appendChild($xml->createElement('loc', $loc));
+		}
+		
+		return $xml;
 	}
 	
 	/**
