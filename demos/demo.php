@@ -21,6 +21,6 @@ $sitemap->addUrl(
 
 header('Content-type: application/xml; charset=utf-8');
 
-$builder = new Builder(new \DOMDocument('1.0', 'UTF-8'));
+$builder = new Builder();
 $xml = $builder->sitemapToXML($sitemap);
 echo $xml->saveXML();
