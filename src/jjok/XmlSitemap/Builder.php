@@ -31,7 +31,7 @@ class Builder {
 	 * @return DOMDocument
 	 */
 	public function sitemapToXML(Sitemap $sitemap) {
-		$this->xml = new \DOMDocument('1.0', 'UTF-8');
+		$this->xml = new DOMDocument('1.0', 'UTF-8');
 		
 		if($sitemap->getStylesheet() != '') {
 			$this->xml->appendChild($this->xml->createProcessingInstruction(
@@ -52,8 +52,13 @@ class Builder {
 		return $this->xml;
 	}
 	
+	/**
+	 * Convert a sitemap Index to XML.
+	 * @param Index $index
+	 * @return DOMDocument
+	 */
 	public function indexToXML(Index $index) {
-		$xml = new \DOMDocument('1.0', 'UTF-8');
+		$xml = new DOMDocument('1.0', 'UTF-8');
 		
 		$sitemapindex = $xml->appendChild($xml->createElement('sitemapindex'));
 		$sitemapindex->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
